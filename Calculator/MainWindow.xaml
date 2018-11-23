@@ -1,0 +1,81 @@
+﻿<Window x:Class="WPF_calc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WPF_Calculator" Height="310" Width="232" ResizeMode="NoResize" Background="Black">
+
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="176*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="19*"/>
+                <ColumnDefinition Width="11*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Height="55" Margin="10" Name="txtResult" BorderBrush="#FF93A5B1" Grid.ColumnSpan="4">
+                <TextBox.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFE5EFFA" Offset="0" />
+                        <GradientStop Color="White" Offset="1" />
+                    </LinearGradientBrush>
+                </TextBox.Background>
+            </TextBox>
+            <TextBlock Margin="15,0,4,15" VerticalAlignment="Bottom" Name="memDisp" Grid.ColumnSpan="3"></TextBlock>
+            <!--Memory 표시(왼쪽 아래)-->
+            <TextBlock Margin="0,15,4,15" HorizontalAlignment="Right" Name="expDisp" Grid.Column="2"></TextBlock>
+            <!--수식 표시(오른쪽 위)-->
+        </Grid>
+
+        <Grid Margin="5,0,10,0" DataContext="{Binding}">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" Margin="5,0,0,5" Name="btnMC" Click="btnMC_Click" Background="#FFD4D4D4">MC</Button>
+            <Button Grid.Row="0" Grid.Column="1" Margin="5,0,0,5" Name="btnMR" Click="btnMR_Click" Background="#FFD4D4D4">MR</Button>
+            <Button Grid.Row="0" Grid.Column="2" Margin="5,0,0,5" Name="btnMS" Click="btnMS_Click" Background="#FFD4D4D4">MS</Button>
+            <Button Grid.Row="0" Grid.Column="3" Margin="5,0,0,5" Name="btnMPlus" Click="btnMPlus_Click" Background="#FFD4D4D4">M+</Button>
+            <Button Grid.Row="0" Grid.Column="4" Margin="5,0,0,5" Name="btnMMinus" Click="btnMMinus_Click" Background="#FFD4D4D4">M-</Button>
+
+            <Button Grid.Row="1" Grid.Column="0" Margin="5,0,0,5" Name="btnBS" Click="btnBS_Click">←</Button>
+            <Button Grid.Row="1" Grid.Column="1" Margin="5,0,0,5" Name="btnCE" Click="btnCE_Click">CE</Button>
+            <Button Grid.Row="1" Grid.Column="2" Margin="5,0,0,5" Name="btnC" Click="btnC_Click">C</Button>
+            <Button Grid.Row="1" Grid.Column="3"  Margin="5,0,0,0" Name="btnPlusMinus" Click="btnPlusMinus_Click" Height="20" VerticalAlignment="Top">±</Button>
+            <Button Grid.Row="1" Grid.Column="4" Margin="5,0,0,5" Name="btnSqrt" Click="btnSqrt_Click">√</Button>
+
+            <Button Grid.Row="2" Grid.Column="0"  Margin="5,0,0,5" Name="btn7" Click="btnNum_Click" Background="#FFCBCBCB">7</Button>
+            <Button Grid.Row="2" Grid.Column="1" Margin="5,0,0,5" Name="btn8" Click="btnNum_Click" Background="#FFCBCBCB">8</Button>
+            <Button Grid.Row="2" Grid.Column="2"  Margin="5,0,0,5" Name="btn9" Click="btnNum_Click" Background="#FFCBCBCB">9</Button>
+            <Button Grid.Row="2" Grid.Column="3" Margin="5,0,0,5" Name="btnDivide" Click="btnDivide_Click">/</Button>
+            <Button Grid.Row="2" Grid.Column="4" Margin="5,0,0,5" Name="btnPercent" Click="btnPercent_Click">%</Button>
+
+            <Button Grid.Row="3" Grid.Column="0" Margin="5,0,0,5" Name="btn4" Click="btnNum_Click" Background="#FFCBCBCB">4</Button>
+            <Button Grid.Row="3" Grid.Column="1" Margin="5,0,0,5" Name="btn5" Click="btnNum_Click" Background="#FFCBCBCB">5</Button>
+            <Button Grid.Row="3" Grid.Column="2" Margin="5,0,0,5" Name="btn6" Click="btnNum_Click" Background="#FFCBCBCB">6</Button>
+            <Button Grid.Row="3" Grid.Column="3" Margin="5,0,0,5" Name="btnTimes" Click="btnTimes_Click">*</Button>
+            <Button Grid.Row="3" Grid.Column="4"  Margin="5,0,0,5" Name="btnReciprocal" Click="btnReciprocal_Click">1/x</Button>
+
+            <Button Grid.Row="4" Grid.Column="0" Margin="5,0,0,5" Name="btn1" Click="btnNum_Click" Background="#FFCBCBCB">1</Button>
+            <Button Grid.Row="4" Grid.Column="1" Margin="5,0,0,5" Name="btn2" Click="btnNum_Click" Background="#FFCBCBCB">2</Button>
+            <Button Grid.Row="4" Grid.Column="2" Margin="5,0,0,5" Name="btn3" Click="btnNum_Click" Background="#FFCBCBCB">3</Button>
+            <Button Grid.Row="4" Grid.Column="3"  Margin="5,0,0,5" Name="btnMinus" Click="btnMinus_Click">-</Button>
+            <Button Grid.Row="4" Grid.Column="4" Grid.RowSpan="2" Margin="5,0,0,5" Name="btnEqual" Click="btnEqual_Click">=</Button>
+
+            
+            <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,0,0,5" Name="btn0" Click="btnNum_Click" Background="#FFCBCBCB">0</Button>
+            <Button Grid.Row="5" Grid.Column="2" Margin="5,0,0,5" Name="btnDot" Click="btnDot_Click">.</Button>
+            <Button Grid.Row="5" Grid.Column="3" Margin="5,0,0,5"  Name="btnPlus" Click="btnPlus_Click">+</Button>
+        </Grid>
+    </StackPanel>
+
+</Window>
